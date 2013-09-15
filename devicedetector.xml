@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+	<name>System - Device Detector</name>
+	<author>Elvis Sedić</author>
+	<creationDate>September 2013</creationDate>
+	<copyright>Copyright (C) 2013 Spletodrom. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@spletodrom.com</authorEmail>
+	<authorUrl>www.spletodrom.com</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[ 
+		<h1 style="margin-left:0;text-align:left;">Device Detector</h1>
+		<p style="font-family:arial,helvetica,sans-serif;font-size:12px;text-align:left;">Device Detector plugin makes it easy to write conditional CSS and/or JavaScript based on device operating system (iOS, Android, Blackberry, Windows), orientation (Portrait vs. Landscape), and type (Tablet vs. Mobile).</p>
+		<p style="font-family:arial,helvetica,sans-serif;font-size:12px;text-align:left;">Based on this script: <a href="https://github.com/matthewhudson/device.js" target="_blank">github.com/matthewhudson/device.js</a>.</p>
+	]]></description>
+	<files>
+		<filename plugin="devicedetector">devicedetector.php</filename>
+		<filename>index.html</filename>
+		<folder>assets</folder>
+	</files>	
+	<languages>
+		<language tag="en-GB">en-GB.plg_devicedetector.ini</language>
+		<language tag="en-GB">en-GB.plg_devicedetector.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field	name="jsversion" type="radio" default="0" description="PLG_DEVICE_DETECT_JSVERSION_DESC" label="PLG_DEVICE_DETECT_JSVERSION_LABEL">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>	
+</extension>
