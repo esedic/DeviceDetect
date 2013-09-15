@@ -20,7 +20,7 @@ jimport( 'joomla.plugin.plugin' );
 define ('PLG_URL', JURI::root(true).'/plugins/system/plg_devicedetector');
 
 /**
- * UADetector Plugin
+ * Device Detector Plugin
  */
 class plgSystemDevicedetect extends JPlugin
 {
