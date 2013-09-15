@@ -19,8 +19,8 @@
 		<folder>assets</folder>
 	</files>	
 	<languages>
-		<language tag="en-GB">en-GB.plg_devicedetector.ini</language>
-		<language tag="en-GB">en-GB.plg_devicedetector.sys.ini</language>
+		<language tag="en-GB">en-GB.plg_system_devicedetector.ini</language>
+		<language tag="en-GB">en-GB.plg_system_devicedetector.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">
