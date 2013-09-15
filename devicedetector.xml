@@ -10,7 +10,7 @@
 	<version>1.0.0</version>
 	<description><![CDATA[ 
 		<h1 style="margin-left:0;text-align:left;">Device Detector</h1>
-		<p style="font-family:arial,helvetica,sans-serif;font-size:12px;text-align:left;">Device Detector plugin makes it easy to write conditional CSS and/or JavaScript based on device operating system (iOS, Android, Blackberry, Windows), orientation (Portrait vs. Landscape), and type (Tablet vs. Mobile).</p>
+		<p style="font-family:arial,helvetica,sans-serif;font-size:12px;text-align:left;">Device Detector plugin for Joomla makes it easy to write conditional CSS and/or JavaScript based on device operating system (iOS, Android, Blackberry, Windows), orientation (Portrait vs. Landscape), and type (Tablet vs. Mobile).</p>
 		<p style="font-family:arial,helvetica,sans-serif;font-size:12px;text-align:left;">Based on this script: <a href="https://github.com/matthewhudson/device.js" target="_blank">github.com/matthewhudson/device.js</a>.</p>
 	]]></description>
 	<files>
