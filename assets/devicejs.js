@@ -1,6 +1,7 @@
 (function() {
-  var _addClass, _doc_element, _find, _handleOrientation, _hasClass, _orientation_event, _removeClass, _supports_orientation, _user_agent,
-    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+  var previousDevice, _addClass, _doc_element, _find, _handleOrientation, _hasClass, _orientation_event, _removeClass, _supports_orientation, _user_agent;
+ 
+  previousDevice = window.device;
  
   window.device = {};
  
@@ -60,12 +61,28 @@
     return device.windows() && _find('touch');
   };
  
+  device.fxos = function() {
+    return (_find('(mobile;') || _find('(tablet;')) && _find('; rv:');
+  };
+ 
+  device.fxosPhone = function() {
+    return device.fxos() && _find('mobile');
+  };
+ 
+  device.fxosTablet = function() {
+    return device.fxos() && _find('tablet');
+  };
+ 
+  device.meego = function() {
+    return _find('meego');
+  };
+ 
   device.mobile = function() {
-    return device.androidPhone() || device.iphone() || device.ipod() || device.windowsPhone() || device.blackberryPhone();
+    return device.androidPhone() || device.iphone() || device.ipod() || device.windowsPhone() || device.blackberryPhone() || device.fxosPhone() || device.meego();
   };
  
   device.tablet = function() {
-    return device.ipad() || device.androidTablet() || device.blackberryTablet() || device.windowsTablet();
+    return device.ipad() || device.androidTablet() || device.blackberryTablet() || device.windowsTablet() || device.fxosTablet();
   };
  
   device.portrait = function() {
@@ -74,6 +91,11 @@
  
   device.landscape = function() {
     return Math.abs(window.orientation) === 90;
+  };
+ 
+  device.noConflict = function() {
+    window.device = previousDevice;
+    return this;
   };
  
   _find = function(needle) {
@@ -126,6 +148,14 @@
     } else {
       _addClass("desktop");
     }
+  } else if (device.fxos()) {
+    if (device.fxosTablet()) {
+      _addClass("fxos tablet");
+    } else {
+      _addClass("fxos mobile");
+    }
+  } else if (device.meego()) {
+    _addClass("meego mobile");
   } else {
     _addClass("desktop");
   }
@@ -140,7 +170,7 @@
     }
   };
  
-  _supports_orientation = __indexOf.call(window, "onorientationchange") >= 0;
+  _supports_orientation = "onorientationchange" in window;
  
   _orientation_event = _supports_orientation ? "orientationchange" : "resize";
  
