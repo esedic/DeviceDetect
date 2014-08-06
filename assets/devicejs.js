@@ -58,7 +58,7 @@
   };
  
   device.windowsTablet = function() {
-    return device.windows() && _find('touch');
+    return device.windows() && (_find('touch') && !device.windowsPhone());
   };
  
   device.fxos = function() {
@@ -77,6 +77,14 @@
     return _find('meego');
   };
  
+  device.cordova = function() {
+    return window.cordova && location.protocol === 'file:';
+  };
+ 
+  device.nodeWebkit = function() {
+    return typeof window.process === 'object';
+  };
+ 
   device.mobile = function() {
     return device.androidPhone() || device.iphone() || device.ipod() || device.windowsPhone() || device.blackberryPhone() || device.fxosPhone() || device.meego();
   };
@@ -85,12 +93,16 @@
     return device.ipad() || device.androidTablet() || device.blackberryTablet() || device.windowsTablet() || device.fxosTablet();
   };
  
+  device.desktop = function() {
+    return !device.tablet() && !device.mobile();
+  };
+ 
   device.portrait = function() {
-    return Math.abs(window.orientation) !== 90;
+    return (window.innerHeight / window.innerWidth) > 1;
   };
  
   device.landscape = function() {
-    return Math.abs(window.orientation) === 90;
+    return (window.innerHeight / window.innerWidth) < 1;
   };
  
   device.noConflict = function() {
@@ -156,8 +168,14 @@
     }
   } else if (device.meego()) {
     _addClass("meego mobile");
+  } else if (device.nodeWebkit()) {
+    _addClass("node-webkit");
   } else {
     _addClass("desktop");
+  }
+ 
+  if (device.cordova()) {
+    _addClass("cordova");
   }
  
   _handleOrientation = function() {
